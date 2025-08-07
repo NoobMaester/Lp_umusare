@@ -64,10 +64,120 @@ nav .btn:hover{
     display: none;
 }
 
+/* hero */
+.hero-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.hero{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    letter-spacing: 1px;
+}
+.hero h1{
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+}
+.big{
+    font-size: 2rem; 
+    color: #357bbd;
+    font-weight: 900;
+    text-align: center;
+}
+.hero p{
+    font-size: 1rem;
+    color: #333;
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+.hero .btn{
+    background-color: #4593da;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    margin-top: 1rem;
+    font-size: 12px;
+}
+.hero .btn:hover{
+    background-color: #357bbd;
+    border-bottom: #357bbd;
+}
+.hero-image{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+.hero-image img{
+    width: 100%;
+    height: auto;
+}
+
+/* why choose us */
 
 
-
-
+/* reviews */
+#review{
+    background-color: #eef8fb;
+}
+#review h2{
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #333;
+}
+.reviews{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5rem;
+}
+.item-1, .item-2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    p{
+        color: #333;
+        text-align: center;
+        width: 80%;
+    }
+    i{
+        font-size: 96px;
+        color: #333;
+        position: relative;
+        top: -70px;
+        border: #104d86 2px solid;
+        border-radius: 100%;
+        padding: 1rem;
+    }
+    
+}
+.item-1{
+    background-color: #357bbd;
+    border-top-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    color: white;
+    width: 45%;
+}
+.item-2{
+    background-color: #4593da;
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    color: white;
+    width: 45%;
+}
+.client-name{
+    font-weight: bold;
+    color: #104d86;
+    padding-top: 1rem;
+}
 
 .icon{
     width: 50px;
