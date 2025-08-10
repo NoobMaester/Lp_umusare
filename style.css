@@ -1,11 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
+:root {
+  --primary-color: #4593da;
+  --primary-dark: #104d86;
+  --secondary-color: #357bbd;
+  --text-dark: #333;
+  --text-light: #666;
+  --white: #ffffff;
+  --transition: all 0.3s ease-in-out;
+}
+
 * {
   font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
+
+body {
+  background: linear-gradient(to bottom, var(--white) 0%, #f8f9fa 100%);
+}
+
 .container {
   width: 100%;
   margin: 0 auto;
@@ -45,16 +61,20 @@ nav a:hover {
   font-size: 12px;
 }
 nav .btn {
-  background-color: #4593da;
-  color: white;
-  padding: 0.5rem 1rem;
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 0.5rem 1.5rem;
   border-radius: 2rem;
   text-decoration: none;
   margin: 0;
+  transition: var(--transition);
+  box-shadow: 0 2px 10px rgba(69, 147, 218, 0.2);
 }
+
 nav .btn:hover {
-  background-color: #357bbd;
-  border-bottom: #357bbd;
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(69, 147, 218, 0.3);
 }
 
 .menu-icons {
@@ -67,6 +87,9 @@ nav .btn:hover {
 /* hero */
 #hero{
     margin-bottom: 5rem;
+    /* Enhanced hero background and spacing */
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 4rem 0;
 }
 .hero-content {
   display: flex;
@@ -84,6 +107,8 @@ nav .btn:hover {
   color: #333;
   font-weight: bold;
   text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 1.5s ease-in-out;
 }
 .big {
   font-size: 2rem;
@@ -99,17 +124,41 @@ nav .btn:hover {
   font-weight: bold;
 }
 .hero .btn {
-  background-color: #4593da;
-  color: white;
-  padding: 0.5rem 1rem;
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 0.75rem 2rem;
   border-radius: 2rem;
   text-decoration: none;
-  margin-top: 1rem;
-  font-size: 12px;
+  margin-top: 2rem;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(69, 147, 218, 0.3);
+  position: relative;
+  overflow: hidden;
 }
+
 .hero .btn:hover {
-  background-color: #357bbd;
-  border-bottom: #357bbd;
+  background-color: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(69, 147, 218, 0.4);
+}
+
+.hero .btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-100%);
+  transition: var(--transition);
+}
+
+.hero .btn:hover::after {
+  transform: translateX(100%);
 }
 .hero-image {
   width: 100%;
@@ -184,20 +233,62 @@ nav .btn:hover {
   display: flex;
   justify-content: space-between;
   align-items: start;
+  gap: 2rem;
+  
   .card {
     width: 30%;
+    transition: var(--transition);
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   }
+
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .card img {
+    transition: var(--transition);
+  }
+
+  .card:hover img {
+    transform: scale(1.05);
+  }
+
+  .card-body {
+    padding: 1.5rem;
+  }
+
+  .card-title {
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  .card-text {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+  }
+
   .tag {
     font-size: 12px;
-    color: #fff;
+    color: var(--white);
     display: flex;
     justify-content: start;
+    gap: 0.5rem;
 
     .tag-item {
-      margin-right: 1rem;
-      background-color: #357bbd;
-      border-radius: 1rem;
+      background-color: var(--primary-color);
+      border-radius: 2rem;
       padding: 0.25rem 1rem;
+      transition: var(--transition);
+    }
+
+    .tag-item:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
     }
   }
 }
@@ -225,45 +316,252 @@ nav .btn:hover {
   align-items: center;
   margin-top: 6rem;
 }
+
+/* Enhanced card designs for reviews */
 .item-1,
 .item-2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
-  p {
-    color: #333;
-    text-align: center;
-    width: 80%;
-  }
-  img {
-    width: 180px;
-    color: #333;
-    position: relative;
-    top: -60px;
-    border-radius: 100%;
-  }
-}
-.item-1 {
-  background-color: #357bbd;
-  border-top-left-radius: 30%;
-  border-bottom-right-radius: 30%;
-  color: white;
+  padding: 2rem;
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(69, 147, 218, 0.15);
   width: 45%;
+  margin: 0 1rem;
+  position: relative;
+  transition: var(--transition);
 }
-.item-2 {
-  background-color: #4593da;
-  border-top-right-radius: 30%;
-  border-bottom-left-radius: 30%;
-  color: white;
-  width: 45%;
+
+.item-1:hover,
+.item-2:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 16px 48px rgba(69, 147, 218, 0.25);
 }
+
+.item-1 img,
+.item-2 img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 100%;
+  margin-top: -60px;
+  border: 4px solid var(--primary-color);
+  box-shadow: 0 4px 16px rgba(69, 147, 218, 0.12);
+  background: var(--white);
+  transition: var(--transition);
+}
+
+.item-1:hover img,
+.item-2:hover img {
+  transform: scale(1.08) translateY(-4px);
+}
+
+.item-1::before,
+.item-2::before {
+  content: '"';
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 80px;
+  color: rgba(69, 147, 218, 0.08);
+  font-family: serif;
+  z-index: 0;
+}
+
 .client-name {
   font-weight: bold;
-  color: #104d86;
+  color: var(--primary-dark);
   padding-top: 1rem;
+  font-size: 1.1rem;
+  position: relative;
+}
+
+.client-name::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 2px;
+  background: var(--primary-color);
+  border-radius: 2px;
 }
 
 footer{
     text-align: center;
+    margin-top: 2rem;
+}
+
+/* Responsive Styles */
+/* Tablet styles */
+@media (max-width: 1024px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .nav-links a, .auth-buttons a {
+        margin: 0 0.5rem;
+        font-size: 11px;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .big {
+        font-size: 1.6rem;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+
+    .image-container img {
+        width: 70%;
+    }
+
+    .connect p {
+        width: 50%;
+    }
+
+    .services {
+        flex-wrap: wrap;
+    }
+
+    .services .card {
+        width: 45%;
+        margin-bottom: 2rem;
+    }
+
+    .reviews {
+        flex-direction: column;
+        gap: 4rem;
+    }
+
+    .item-1, .item-2 {
+        width: 80%;
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 600px) {
+    .container {
+        padding: 0.5rem;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 1rem;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .nav-links a {
+        margin: 0.5rem 0;
+        font-size: 14px;
+    }
+
+    .menu-icons {
+        display: block;
+        order: 3;
+    }
+
+    nav {
+        position: relative;
+        padding: 1rem;
+        .btn{
+            padding: 0.25rem 1rem;
+        }
+    }
+
+    .auth-buttons {
+        order: 2;
+    }
+
+    .auth-buttons a {
+        font-size: 11px;
+    }
+
+    .logo {
+        order: 1;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        margin-top: 1rem;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .big {
+        font-size: 1.3rem;
+    }
+
+    .hero p {
+        font-size: 0.8rem;
+        padding: 0 1rem;
+    }
+
+    .hero-image img {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .image-container {
+        flex-direction: column;
+    }
+
+    .image-container img {
+        display: none;
+    }
+
+    .image-container i {
+        font-size: 60px;
+        margin: 1rem 0;
+    }
+
+    .connect p {
+        width: 90%;
+        text-align: center;
+    }
+
+    .services .card {
+        width: 100%;
+    }
+
+    .item-1, .item-2 {
+        width: 95%;
+    }
+
+    .item-1 img, .item-2 img {
+        width: 120px;
+    }
+}
+
+/* Keyframes for hero fadeIn */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
