@@ -182,17 +182,14 @@ nav .btn:hover {
 }
 #best p {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 5rem;
   color: #333;
 }
 .image-container{
     display: flex;
     justify-content: flex-start;
     align-items: center;
-}
-.image-container img{
-  width: 60%;
-  height: auto;
+    gap: 2rem;
 }
 .image-container i {
   font-size: 90px;
@@ -206,20 +203,12 @@ nav .btn:hover {
     p{
         font-size: 12px;
     }
+    h3{
+      margin: 1rem 0;
+      font-size: 16px;
+    }
 }
-.connect {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.connect i {
-  font-size: 90px;
-  color: #104d86;
-}
-.connect p{
-    width: 30%;
-    font-size: 12px;
-}
+
 
 /* services */
 #offer {
@@ -394,6 +383,20 @@ footer{
     margin-top: 2rem;
 }
 
+/* Global Section Styles */
+section {
+  padding: 4rem 2rem;
+  margin: 2rem 0;
+  background: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: var(--transition);
+}
+
+section:hover {
+  transform: translateY(-2px);
+}
+
 /* Responsive Styles */
 /* Tablet styles */
 @media (max-width: 1024px) {
@@ -418,12 +421,11 @@ footer{
         font-size: 0.9rem;
     }
 
-    .image-container img {
-        width: 70%;
-    }
-
-    .connect p {
+    .image-container{
+      flex-direction: column;
+      p{
         width: 50%;
+      }
     }
 
     .services {
@@ -431,7 +433,7 @@ footer{
     }
 
     .services .card {
-        width: 45%;
+        width: 90%;
         margin-bottom: 2rem;
     }
 
@@ -441,7 +443,10 @@ footer{
     }
 
     .item-1, .item-2 {
-        width: 80%;
+        width: 90%;
+        p{
+          text-align: center;
+        }
     }
 }
 
